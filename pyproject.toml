@@ -4,7 +4,9 @@ version = "0.1.0"
 description = "LLM Judger"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
-dependencies = []
+dependencies = [
+    "pydantic>=2.12.5",
+]
 
 [tool.black]
 line-length = 88
@@ -32,7 +34,14 @@ dev = [
     "pre-commit>=4.2.0",
     "pyright>=1.1.408",
     "pytest>=8.4.1",
+    "pytest-asyncio>=0.23.0",
 ]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.pyright]
+exclude = ["tests"]
 
 [tool.uv]
 index-url = "https://mirrors.aliyun.com/pypi/simple"
